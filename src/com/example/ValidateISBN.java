@@ -2,6 +2,27 @@ package com.example;
 
 public class ValidateISBN {
 
+    public boolean isISBN(String isbn){
+       if(!isISBNNumeric(isbn)){
+           return false;
+       }
+
+        if(checkNumberOfDigits10DigitISBN(isbn)){
+            if(check10DigitISBN(isbn)){
+                return true;
+            }else {
+                return false;
+            }
+        }else if(checkNumberOfDigits13DigitISBN(isbn)){
+            if(check13DigitISBN(isbn)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
     public boolean check10DigitISBN(String isbn){
 
        // long numericISBN = Long.parseLong(isbn);
